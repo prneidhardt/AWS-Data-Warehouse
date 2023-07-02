@@ -16,39 +16,53 @@
 
 ### Configuration
 
-Set up a config file `dwh.cfg` that uses the following schema. To use the SDK notebooks, you'll have to create access keys for AWS. If these keys are unavailable, you can manually create these assets via the AWS Management Console. Once these assets are available, complete the information for your Redshift cluster and IAM-Role that can manage your cluster and read S3 buckets. I have shared example variables or provided descriptions.
+Set up a config file `dwh.cfg` that uses the following schema. To use the SDK notebooks, you'll have to create access keys for AWS. If these keys are unavailable, you can manually create these assets via the AWS Management Console. Once these assets are available, complete the information for your Redshift cluster and IAM-Role that can manage your cluster and read S3 buckets. 
 
+Below, I have shared example inputs or provided descriptions.
+```
 [AWS]
-   KEY = "The AWS Access Key ID is a unique identifier that is used to identify the AWS account associated with an API request. It is a 20-character alphanumeric string, similar to "AKIAIOSFODNN7EXAMPLE". The Access Key ID is used to identify the user or application making API calls to AWS services."
-   SECRET = "The Secret Access Key is a 40-character alphanumeric string that is paired with the Access Key ID. It is used to sign requests made to AWS services for authentication purposes. The Secret Access Key should be kept confidential and should not be shared or exposed publicly."
+KEY = #user-input
+*The AWS Access Key ID is a unique identifier that is used to identify the AWS account associated with an API request.
+It is a 20-character alphanumeric string, similar to "AKIAIOSFODNN7EXAMPLE".
+The Access Key ID is used to identify the user or application making API calls to AWS services.*
 
-#### Example dwf.cfg with recommended inputs included
+SECRET = #user-input
+*The Secret Access Key is a 40-character alphanumeric string that is paired with the Access Key ID.
+It is used to sign requests made to AWS services for authentication purposes.
+The Secret Access Key should be kept confidential and should not be shared or exposed publicly*
+
 [DWH]
-   DWH_CLUSTER_TYPE = multi-node
-   DWH_NUM_NODES = 4
-   DWH_NODE_TYPE = dc2.large
-   DWH_CLUSTER_IDENTIFIER = projectCluster
-   DWH_DB = #user-input
-   DWH_DB_USER = #user-input
-   DWH_DB_PASSWORD = #user-input
-   DWH_PORT = 5439
-   DWH_IAM_ROLE_NAME = #user-input
+DWH_CLUSTER_TYPE = multi-node
+DWH_NUM_NODES = 4
+DWH_NODE_TYPE = dc2.large
+DWH_CLUSTER_IDENTIFIER = projectCluster
+DWH_DB = #user-input
+DWH_DB_USER = #user-input
+DWH_DB_PASSWORD = #user-input
+DWH_PORT = 5439
+DWH_IAM_ROLE_NAME = #user-input
 
 [S3]
-   LOG_DATA= s3://udacity-dend/log_data
-   LOG_JSONPATH= s3://udacity-dend/log_json_path.json
-   SONG_DATA= s3://udacity-dend/song_data
+LOG_DATA= s3://udacity-dend/log_data
+LOG_JSONPATH= s3://udacity-dend/log_json_path.json
+SONG_DATA= s3://udacity-dend/song_data
 
 *Note: complete the SDK_create notebook to generate the following inputs*
 [IAM_ROLE]
-ARN = "An Amazon Resource Name (ARN) is a unique identifier for resources within Amazon Web Services (AWS). It is a string of characters that follows a specific format and is used to identify and access various AWS resources."
+ARN = #user-input
+*An Amazon Resource Name (ARN) is a unique identifier for resources within Amazon Web Services (AWS).
+It is a string of characters that follows a specific format and is used to identify and access various AWS resources.*
 
 [CLUSTER]
-   HOST = "The endpoint of a Redshift cluster typically follows the format: <cluster-identifier>.<random-characters>.<region>.redshift.amazonaws.com"
-   DB_NAME = project
-   DB_USER = projectuser
-   DB_PASSWORD =  "When setting up an AWS Redshift cluster, it is recommended to follow best practices for password management, such as using strong and unique passwords, regularly rotating passwords, and ensuring proper access control."
-   DB_PORT_2 = 5439 
+HOST = #user-input
+*The endpoint of a Redshift cluster typically follows the format:
+<cluster-identifier>.<random-characters>.<region>.redshift.amazonaws.com*
+
+DB_NAME = #user-input
+DB_USER = #user-input
+DB_PASSWORD = #user-input
+DB_PORT_2 = 5439
+```
 
 ### ETL Pipeline Instructions
 
