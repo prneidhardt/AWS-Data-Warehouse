@@ -1,5 +1,4 @@
 # AWS-Data-Warehouse
-- Project completed as part of Udacity's Data Engineering with AWS Nanodegree Program
 - Project delivered in June 2023
 - Repository includes six files:
     * A `SDK_create.ipynb` notebook that contains a series of scripts to create an IAM role and Redshift cluster
